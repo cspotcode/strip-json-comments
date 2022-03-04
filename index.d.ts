@@ -5,6 +5,12 @@ export interface Options {
 	@default true
 	*/
 	readonly whitespace?: boolean;
+	/**
+	Strip trailing commas in addition to comments.
+
+	@default false
+	*/
+	readonly trailingCommas?: boolean;
 }
 
 /**
