@@ -47,6 +47,7 @@
 	},
 	"xo": {
 		"rules": {
+			"complexity": "off",
 			"unicorn/prefer-module": "off"
 		}
 	},
