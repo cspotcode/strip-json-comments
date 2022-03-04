@@ -65,13 +65,13 @@ test('handles weird escaping', t => {
 });
 
 test('strips trailing commas', t => {
-	t.is(stripJsonComments(`{"x":true,}`, {trailingCommas: true}), `{"x":true }`);
-	t.is(stripJsonComments(`{"x":true,}`, {trailingCommas: true, whitespace: false}), `{"x":true}`);
-	t.is(stripJsonComments(`{"x":true,\n  }`, {trailingCommas: true}), `{"x":true \n  }`);
-	t.is(stripJsonComments(`[true, false,]`, {trailingCommas: true}), `[true, false ]`);
-	t.is(stripJsonComments(`[true, false,]`, {trailingCommas: true, whitespace: false}), `[true, false]`);
-	t.is(stripJsonComments(`{\n  "array": [\n    true,\n    false,\n  ],\n}`, {trailingCommas: true, whitespace: false}), `{\n  "array": [\n    true,\n    false\n  ]\n}`);
-	t.is(stripJsonComments(`{\n  "array": [\n    true,\n    false /* comment */ ,\n /*comment*/ ],\n}`, {trailingCommas: true, whitespace: false}), `{\n  "array": [\n    true,\n    false  \n  ]\n}`);
+	t.is(stripJsonComments('{"x":true,}', {trailingCommas: true}), '{"x":true }');
+	t.is(stripJsonComments('{"x":true,}', {trailingCommas: true, whitespace: false}), '{"x":true}');
+	t.is(stripJsonComments('{"x":true,\n  }', {trailingCommas: true}), '{"x":true \n  }');
+	t.is(stripJsonComments('[true, false,]', {trailingCommas: true}), '[true, false ]');
+	t.is(stripJsonComments('[true, false,]', {trailingCommas: true, whitespace: false}), '[true, false]');
+	t.is(stripJsonComments('{\n  "array": [\n    true,\n    false,\n  ],\n}', {trailingCommas: true, whitespace: false}), '{\n  "array": [\n    true,\n    false\n  ]\n}');
+	t.is(stripJsonComments('{\n  "array": [\n    true,\n    false /* comment */ ,\n /*comment*/ ],\n}', {trailingCommas: true, whitespace: false}), '{\n  "array": [\n    true,\n    false  \n  ]\n}');
 });
 
 test.failing('handles malformed block comments', t => {

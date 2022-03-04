@@ -79,9 +79,8 @@ export default function stripJsonComments(jsonString, {whitespace = true, traili
 			offset = index + 1;
 			continue;
 		} else if (trailingCommas && !isInsideComment) {
-			console.dir({commaIndex, currentCharacter, fullResult: result, result: buffer, offset, index});
 			if (commaIndex !== -1) {
-				if(currentCharacter === '}' || currentCharacter === ']') {
+				if (currentCharacter === '}' || currentCharacter === ']') {
 					// Strip trailing comma
 					buffer += jsonString.slice(offset, index);
 					result += strip(buffer, 0, 1) + buffer.slice(1);
